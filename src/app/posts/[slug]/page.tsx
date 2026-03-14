@@ -7,9 +7,11 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
   const slugs = getAllSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return slugs.map((slug) => ({ slug: encodeURIComponent(slug) }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

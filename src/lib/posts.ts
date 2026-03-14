@@ -62,7 +62,8 @@ export function getAllPosts(): PostMeta[] {
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   ensurePostsDirectory();
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
+  const decodedSlug = decodeURIComponent(slug);
+  const fullPath = path.join(postsDirectory, `${decodedSlug}.md`);
 
   if (!fs.existsSync(fullPath)) {
     return null;
