@@ -42,7 +42,8 @@ export default async function PostPage({ params }: Props) {
       {/* 뒤로가기 */}
       <Link
         href="/"
-        className="inline-flex items-center text-sm text-gray-400 hover:text-gray-600 transition-colors mb-8"
+        className="inline-flex items-center text-sm transition-colors mb-8"
+        style={{ color: "#A09890" }}
       >
         <svg
           className="w-4 h-4 mr-1"
@@ -61,31 +62,48 @@ export default async function PostPage({ params }: Props) {
       </Link>
 
       {/* 포스트 헤더 */}
-      <header className="mb-10">
+      <header
+        className="mb-10 rounded-2xl p-8"
+        style={{ background: "#FFFDF9", border: "1px solid #E8D8C3" }}
+      >
         <div className="flex items-center gap-3 mb-4">
-          <span className="text-xs font-medium text-orange-500 bg-orange-50 px-2.5 py-1 rounded-full">
+          <span
+            className="text-xs font-semibold px-2.5 py-1 rounded-full"
+            style={{ background: "#E8D8C3", color: "#6A5E5A" }}
+          >
             {post.category}
           </span>
-          <time className="text-sm text-gray-400">{post.date}</time>
-          <span className="text-sm text-gray-400">{post.readingTime}</span>
+          <time className="text-sm" style={{ color: "#A09890" }}>
+            {post.date}
+          </time>
+          <span className="text-sm" style={{ color: "#A09890" }}>
+            {post.readingTime}
+          </span>
         </div>
-        <h1 className="text-3xl font-extrabold text-gray-900 leading-snug mb-4">
+        <h1
+          className="text-2xl md:text-3xl font-extrabold leading-snug"
+          style={{ color: "#3A2E2A" }}
+        >
           {post.title}
         </h1>
-        <div className="h-px bg-gray-100" />
       </header>
 
       {/* 포스트 본문 */}
       <div
-        className="prose max-w-none"
+        className="prose max-w-none rounded-2xl p-6 md:p-8"
+        style={{ background: "#FFFDF9", border: "1px solid #E8D8C3" }}
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
 
       {/* 하단 네비게이션 */}
-      <div className="mt-16 pt-8 border-t border-gray-100">
+      <div
+        className="mt-8 pt-8 text-center"
+        style={{ borderTop: "1px solid #E8D8C3" }}
+      >
         <Link
           href="/"
-          className="inline-flex items-center text-sm font-medium text-orange-500 hover:text-orange-600 transition-colors"
+          className="inline-flex items-center text-sm font-medium transition-colors"
+          style={{ color: "#C8A27E" }}
         >
           <svg
             className="w-4 h-4 mr-1"

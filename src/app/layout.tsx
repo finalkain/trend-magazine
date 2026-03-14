@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "트렌드 매거진",
   description:
-    "매일 업데이트되는 트렌드 정보, 제품 리뷰, 생활 꿀팁을 전하는 블로그",
+    "매일 업데이트되는 트렌드 정보, 제품 리뷰, 생활 꿀팁을 전하는 가족 블로그",
 };
 
 export default function RootLayout({
@@ -23,26 +23,34 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
       </head>
-      <body className="bg-white text-gray-800 antialiased">
+      <body className="antialiased" style={{ background: "#F6F1E9", color: "#3A2E2A" }}>
         {/* 헤더 */}
-        <header className="border-b border-gray-100 sticky top-0 bg-white/95 backdrop-blur-sm z-50">
+        <header
+          className="sticky top-0 z-50 backdrop-blur-sm"
+          style={{
+            background: "rgba(255, 253, 249, 0.95)",
+            borderBottom: "1px solid #E8D8C3",
+          }}
+        >
           <div className="max-w-[768px] mx-auto px-5 h-16 flex items-center justify-between">
             <Link
               href="/"
-              className="text-xl font-bold text-gray-900 tracking-tight"
+              className="text-xl font-bold tracking-tight"
+              style={{ color: "#3A2E2A" }}
             >
               트렌드 매거진
             </Link>
-            <nav className="flex gap-6 text-sm text-gray-500">
+            <nav className="flex gap-6 text-sm" style={{ color: "#8A7E7A" }}>
               <Link
                 href="/"
-                className="hover:text-gray-900 transition-colors"
+                className="transition-colors hover:opacity-80"
+                style={{ color: "#C8A27E" }}
               >
                 홈
               </Link>
               <Link
                 href="/categories"
-                className="hover:text-gray-900 transition-colors"
+                className="transition-colors hover:opacity-80"
               >
                 카테고리
               </Link>
@@ -56,11 +64,14 @@ export default function RootLayout({
         </main>
 
         {/* 푸터 */}
-        <footer className="border-t border-gray-100 py-8 text-center text-sm text-gray-400">
+        <footer
+          className="py-10 text-center text-sm"
+          style={{ borderTop: "1px solid #E8D8C3", color: "#8A7E7A" }}
+        >
           <div className="max-w-[768px] mx-auto px-5">
+            <p className="mb-1">매일 새로운 트렌드와 유용한 정보를 전합니다.</p>
             <p>
-              &copy; {new Date().getFullYear()} 트렌드 매거진. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} 트렌드 매거진
             </p>
           </div>
         </footer>

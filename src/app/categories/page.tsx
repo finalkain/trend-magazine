@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export default function CategoriesPage() {
   const posts = getAllPosts();
 
-  // 카테고리별 그룹핑
   const categoryMap: Record<string, typeof posts> = {};
   for (const post of posts) {
     if (!categoryMap[post.category]) {
@@ -22,22 +21,40 @@ export default function CategoriesPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-extrabold text-gray-900 mb-8">카테고리</h1>
+      <h1
+        className="text-3xl font-extrabold mb-8"
+        style={{ color: "#3A2E2A" }}
+      >
+        카테고리
+      </h1>
 
       {categories.length === 0 ? (
-        <p className="text-gray-400">아직 카테고리가 없습니다.</p>
+        <p style={{ color: "#8A7E7A" }}>아직 카테고리가 없습니다.</p>
       ) : (
-        <div className="space-y-10">
+        <div className="space-y-8">
           {categories.map((category) => (
-            <section key={category}>
-              <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                <span className="text-orange-500">#</span>
+            <section
+              key={category}
+              className="rounded-2xl p-6"
+              style={{ background: "#FFFDF9", border: "1px solid #E8D8C3" }}
+            >
+              <h2
+                className="text-lg font-bold mb-4 flex items-center gap-2"
+                style={{ color: "#3A2E2A" }}
+              >
+                <span style={{ color: "#C8A27E" }}>#</span>
                 {category}
-                <span className="text-sm font-normal text-gray-400">
+                <span
+                  className="text-sm font-normal"
+                  style={{ color: "#A09890" }}
+                >
                   ({categoryMap[category].length})
                 </span>
               </h2>
-              <div className="space-y-0 divide-y divide-gray-50">
+              <div
+                className="space-y-0 divide-y"
+                style={{ borderColor: "#EDE6DA" }}
+              >
                 {categoryMap[category].map((post) => (
                   <Link
                     key={post.slug}
@@ -45,10 +62,16 @@ export default function CategoriesPage() {
                     className="block py-3 group"
                   >
                     <div className="flex items-baseline justify-between gap-4">
-                      <span className="text-base text-gray-700 group-hover:text-orange-500 transition-colors font-medium truncate">
+                      <span
+                        className="text-base font-medium truncate transition-colors group-hover:text-[#C8A27E]"
+                        style={{ color: "#4A3E3A" }}
+                      >
                         {post.title}
                       </span>
-                      <time className="text-xs text-gray-400 whitespace-nowrap">
+                      <time
+                        className="text-xs whitespace-nowrap"
+                        style={{ color: "#A09890" }}
+                      >
                         {post.date}
                       </time>
                     </div>
